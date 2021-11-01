@@ -1,0 +1,58 @@
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.global-container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.container-height {
+    margin-top: 20px;
+    padding-top: 40px;
+    min-height: 75vh;
+    margin-bottom: 50px;
+    h1 {
+        color: #1b4559;
+    }
+}
+
+.container-footer {
+    width: 100%;
+}
+
+.copyright-text {
+    text-align: center;
+    color: #092c4c;
+}
+
+.error-p {
+    color: #d43232;
+    padding-left: 15px;
+    padding-top: 4px;
+    font-size: 13px;
+}
+
+.box-modal-create {
+    min-height: 500px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.box-modal-modules {
+    min-height: 500px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+

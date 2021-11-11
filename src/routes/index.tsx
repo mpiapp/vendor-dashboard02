@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Forgot from '../features_app/auth/forgot/Forgot';
 import Login from '../features_app/auth/login/Login'
 import Register from '../features_app/auth/register/Register';
 import AccountPage from '../features_app/dashboard/account/AccountPage';
@@ -10,14 +11,10 @@ import HomeDashboard from '../features_app/dashboard/home/HomeDashboard';
 import OrdersPage from '../features_app/dashboard/orders/OrdersPage';
 import ProductsPage from '../features_app/dashboard/products/ProductsPage';
 import ProfilePage from '../features_app/dashboard/profile/ProfilePage';
-// import SettingPage from '../features_app/dashboard/setting/SettingPage';
 import StepRegister from '../features_app/dashboard/step_register/StepRegister';
 import TeamsPage from '../features_app/dashboard/teams/TeamsPage';
+import Error404 from '../features_app/error404/Error404';
 import DashboardLayout from '../utilities/DashboardLayout';
-
-const ErrorPage = () => {
-  return <p>Error page</p>
-}
 
 function AppRoute() {
   return (
@@ -26,6 +23,7 @@ function AppRoute() {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/forgot-password" component={Forgot} />
           <DashboardLayout exact path="/register/step" component={StepRegister} />
           <DashboardLayout exact path="/dashboard" component={HomeDashboard} />
           <DashboardLayout exact path="/dashboard/orders" component={OrdersPage} />
@@ -37,7 +35,7 @@ function AppRoute() {
           <DashboardLayout exact path="/dashboard/finance" component={FinancePage} />
           <DashboardLayout exact path="/dashboard/message" component={ChatPage} />
           <DashboardLayout exact path="/dashboard/buyer-list" component={BuyerLists} />
-          <Route exact path="*" component={ErrorPage} />
+          <Route exact path="*" component={Error404} />
 
         </Switch>
       </BrowserRouter>

@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { useForm } from "react-hook-form";
 import Select from 'react-select'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { IUserManagement } from '../stepRegisterTypes'
@@ -48,13 +48,13 @@ const FormUserManagement : React.FC<any> = () => {
     const [loading, setLoading] = useState(false);
       
     // state for category company
-    const [optionsRoles, setOptionsRoles] = useState<ISelectOption[]>([
+    const [optionsRoles] = useState<ISelectOption[]>([
         { value: "Admin", label: "Admin" },
         { value: "Picker", label: "Picker" },
         { value: "Accounting", label: "Accounting" },
     ]);
     const [selectedRoles, setSelectedRoles] = useState<ISelectOption[]>([]);
-    const [errorRoles, setErrorRoles] = useState<boolean>(false);
+    const [errorRoles] = useState<boolean>(false);
 
      /* istanbul ignore next */
      const handleChangeRoles = (value: any) : void => {
@@ -63,11 +63,11 @@ const FormUserManagement : React.FC<any> = () => {
 
 
     const onSubmit = (data: IUserManagement): void => {
-        let dataUser = {
-            email: data.email,
-            password : data.password,
-            fullname : data.fullname,
-        }
+        // let dataUser = {
+        //     email: data.email,
+        //     password : data.password,
+        //     fullname : data.fullname,
+        // }
         setLoading(true)
         setTimeout(() => {
             reset()

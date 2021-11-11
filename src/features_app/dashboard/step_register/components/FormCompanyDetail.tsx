@@ -54,7 +54,7 @@ const FormCompanyDetail : React.FC<any> = ({
     const [loading, setLoading] = useState(false);
       
     // state for category company
-    const [optionsCategoryCompany, setOptionsCategoryCompany] = useState<ISelectOption[]>([
+    const [optionsCategoryCompany] = useState<ISelectOption[]>([
         { value: "Hotel", label: "Hotel" },
         { value: "Restaurant", label: "Restaurant" },
         { value: "Cafe", label: "Cafe" },
@@ -63,7 +63,7 @@ const FormCompanyDetail : React.FC<any> = ({
     const [errorCategoryCompany, setErrorCategoryCompany] = useState<boolean>(false);
 
     // state for type company
-    const [optionsTypeCompany, setOptionsTypeCompany] = useState<ISelectOption[]>([
+    const [optionsTypeCompany] = useState<ISelectOption[]>([
         { value: "PT", label: "PT" },
         { value: "CV", label: "CV" },
         { value: "UD", label: "UD" },
@@ -72,7 +72,7 @@ const FormCompanyDetail : React.FC<any> = ({
     const [errorTypeCompany, setErrorTypeCompany] = useState<boolean>(false);
 
     // state for province
-    const [optionsProvince, setOptionsProvince] = useState<ISelectOption[]>([
+    const [optionsProvince] = useState<ISelectOption[]>([
         { value: "DKI Jakarta", label: "DKI Jakarta" },
         { value: "Jawa Tengah", label: "Jawa Tengah" },
         { value: "Sulawesi", label: "Sulawesi" },
@@ -81,7 +81,7 @@ const FormCompanyDetail : React.FC<any> = ({
     const [errorProvince, setErrorProvince] = useState<boolean>(false);
 
     // state for city
-    const [optionsCity, setOptionsCity] = useState<ISelectOption[]>([
+    const [optionsCity] = useState<ISelectOption[]>([
         { value: "Jakarta Pusat", label: "Jakarta Pusat" },
         { value: "Jakarta Selatan", label: "Jakarta Selatan" },
         { value: "Jakarta Timur", label: "Jakarta Timur" },
@@ -90,7 +90,7 @@ const FormCompanyDetail : React.FC<any> = ({
     const [errorCity, setErrorCity] = useState<boolean>(false);
 
     // state for District
-    const [optionsDistrict, setOptionsDistrict] = useState<ISelectOption[]>([
+    const [optionsDistrict] = useState<ISelectOption[]>([
         { value: "Tebet", label: "Tebet" },
         { value: "Bukit Duri", label: "Bukit Duri" },
         { value: "Matraman", label: "Matraman" },
@@ -99,7 +99,7 @@ const FormCompanyDetail : React.FC<any> = ({
     const [errorDistrict, setErrorDistrict] = useState<boolean>(false);
 
     // state for SubDistrict
-    const [optionsSubDistrict, setOptionsSubDistrict] = useState<ISelectOption[]>([
+    const [optionsSubDistrict] = useState<ISelectOption[]>([
         { value: "Bukit Duri", label: "Bukit Duri" },
         { value: "Manggarai", label: "Manggarai" },
         { value: "Tebet", label: "Tebet" },
@@ -231,6 +231,7 @@ const FormCompanyDetail : React.FC<any> = ({
         if(local_data !== null) {
             checkLocalData()
         }
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
@@ -239,6 +240,7 @@ const FormCompanyDetail : React.FC<any> = ({
             const data : any = legalname === null ? null : legalname
             setValue('legalname', data)
         }
+        // eslint-disable-next-line
     }, []);
 
     return (

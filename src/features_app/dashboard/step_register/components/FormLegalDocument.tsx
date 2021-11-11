@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import {
-    Paper,
     Button,
     Grid,
     Box,
@@ -8,13 +7,7 @@ import {
     Backdrop,
     CircularProgress 
 } from '@mui/material';
-import { useForm } from "react-hook-form";
-import Select from 'react-select'
-import { useDispatch, useSelector } from 'react-redux'
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
-import { UserFormSubmit } from '../stepRegisterTypes'
-import { ISelectOption } from '../../globalTypes'
+import { useDispatch } from 'react-redux'
 import { changeStep } from '../stepRegisterSlice';
 
 const legal_document = [
@@ -38,25 +31,23 @@ const FormLegalDocument : React.FC<any> = ({
     const dispatch = useDispatch()
 
     const [loading, setLoading] = useState(false);
-    const [loaded, setLoaded] = useState(false);
 
     const [legalDocState, setLegalDocState] = useState<any>([]);
 
-    console.log(legalDocState, 'doc state')
-
-    // const onSubmit = (data: UserFormSubmit): void => {
-    //     console.log(data, 'data')
-    //     dispatch(changeStep(2))
-    // }
-
-    // const onChangeFile = (event) => {
-
-    // }
+    const onChangeValue = (event : any) => {
+        let { name, value }  = event.target
+        let copyState = [...legalDocState]
+        if(copyState.find(element => element.short_title === name)) {
+            copyState.find(el => el.short_title === name).value = value
+            setLegalDocState(copyState)
+        }
+    }
 
     const onClickNext = () => {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
+            localStorage.setItem('legal_document', JSON.stringify(legalDocState))
             dispatch(changeStep(2))
         }, 2000);
     }
@@ -74,11 +65,20 @@ const FormLegalDocument : React.FC<any> = ({
             })
         }
         setLegalDocState(state)
-        setLoaded(true)
     }
 
     useEffect(() => {
-        proceedState(legal_document)
+        const local_data = localStorage.getItem('legal_document')
+        const checkLocalData = () => {
+            const data : any = local_data === null ? null : JSON.parse(local_data)
+            setLegalDocState(data)
+        }
+        if(local_data === null) {
+            proceedState(legal_document)
+        } else {
+            checkLocalData()
+        }
+        // eslint-disable-next-line
     }, []);
 
 
@@ -109,6 +109,7 @@ const FormLegalDocument : React.FC<any> = ({
                                         label={`Number ${val.title}`}
                                         name={val.short_title}
                                         size="small"
+                                        onChange={onChangeValue}
                                     />
                                 </Grid>
                             </Grid>
@@ -134,7 +135,6 @@ const FormLegalDocument : React.FC<any> = ({
                         <Box sx={{ flex: '1 1 auto' }} />
                         <Button 
                             variant="contained"
-                            type="submit"
                         >
                             Save Change
                         </Button>

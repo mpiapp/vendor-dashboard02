@@ -1,7 +1,7 @@
-import { Button, CircularProgress, Paper, TextField } from '@mui/material'
+import { Button, Paper, TextField } from '@mui/material'
 import { Box } from '@mui/system'
 import BreadCrumbs from '../../../components/BreadCrumbs'
-// import {userCredentials} from './../../../utilities/config'
+import {userCredentials} from './../../../utilities/config'
 
 function AccountPage() {
 
@@ -25,7 +25,7 @@ function AccountPage() {
                             // error={!!errors.fullname}
                             // helperText={errors.fullname && errors.fullname.message}
                             // {...register('fullname', { required: true })}
-                            defaultValue="Surya Doe"
+                            defaultValue={userCredentials.fullname}
                             margin="normal"
                             fullWidth
                             id="fullname"
@@ -43,7 +43,7 @@ function AccountPage() {
                             label="Email Address"
                             name="email"
                             autoComplete="email"
-                            defaultValue="arissurya28@gmail.com"
+                            defaultValue={userCredentials.email}
                             disabled
                         />
                         <TextField

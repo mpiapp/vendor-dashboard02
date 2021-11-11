@@ -36,7 +36,6 @@ interface Props {
 
 const NavDashboard = (props: Props) => {
     const auth = useSelector((state : RootState) => state.login )
-    // console.log(auth, 'auth store')
     
     const history = useHistory()
     const { window } = props

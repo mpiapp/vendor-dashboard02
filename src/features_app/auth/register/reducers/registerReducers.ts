@@ -12,12 +12,12 @@ export const registerAction = createAsyncThunk(
             email : value.email,
             password : value.password,
             fullname : value.fullname,
-            buyer_id : "asdgadfe",
+            vendor_id : "asdgadfe",
             role_id: "00"
           }
           localStorage.setItem('fullname', value.fullname)
           localStorage.setItem('legalname', value.company_name)
-          const response = await Axios.post(`${process.env.REACT_APP_API_URL_USERS}/buyer/register`, body)
+          const response = await Axios.post(`${process.env.REACT_APP_API_URL_USERS}/vendor/register`, body)
           return response.data
         } catch (err : any) {
           if (!err.response) {

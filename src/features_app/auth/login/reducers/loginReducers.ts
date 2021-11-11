@@ -14,31 +14,27 @@ export const loginAction = createAsyncThunk(
             password : value.password,
         }
         try {
-            const response : any = await Axios.post(`${process.env.REACT_APP_API_URL_USERS}/buyer/login`, body)
+            const response : any = await Axios.post(`${process.env.REACT_APP_API_URL_USERS}/vendor/login`, body)
             if(response) {
                 let headers = {
                     'Content-Type': 'application/json',
                     'token': response.data.access_token
                 }
                 try {
-                    const profil : any = await Axios.post(`${process.env.REACT_APP_API_URL_USERS}/buyer/user-access`, {}, {
+                    const profil : any = await Axios.post(`${process.env.REACT_APP_API_URL_USERS}/vendor/user-access`, {}, {
                         headers: headers
                     })
                     if(profil) {
+                        console.log(profil, 'profile')
                         let data = {
                             access_token : response.data.access_token,
                             id_token : response.data.id_token, 
                             expires_in : response.data.expires_in,
-                            // email : profil.data.profile_user.email,
-                            // fullname : profil.data.profile_user.name, 
-                            // role : profil.data.profile_user.role, 
-                            // avatar : profil.data.avatar,
-                            // auth_id : profil.data.auth_id,
-                            email : value.email,
-                            fullname : localStorage.getItem('fullname'), 
-                            role : "Owner", 
-                            avatar : "asdfa",
-                            auth_id : "authasddf123sd",
+                            email : profil.data.email,
+                            fullname : profil.data.fullname, 
+                            role : profil.data.role, 
+                            avatar : profil.data.avatar,
+                            auth_id : profil.data.auth_id,
                             first_time : true,
                             login: true
                         }

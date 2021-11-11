@@ -18,3 +18,20 @@
 .rdt_TableCell {
     height: 40px;
 }
+
+.img-notfound {
+    margin-top: 70px;
+    img {
+        width: 400px;
+    }
+}
+
+.text-notfound {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h1 {
+        margin-bottom: 20px;
+    }
+}

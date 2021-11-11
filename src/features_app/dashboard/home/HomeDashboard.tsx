@@ -1,7 +1,7 @@
 // import { Grid, Paper } from '@mui/material'
 import { Box } from '@mui/system'
 // import React from 'react'
-// import {userCredentials} from './../../../utilities/config'
+import {userCredentials} from './../../../utilities/config'
 
 function HomeDashboard() {
 
@@ -9,7 +9,7 @@ function HomeDashboard() {
 
     return (
         <Box sx={{pl:3, pr:3}}>
-           <h2>Welcome back, {localStorage.getItem('legalname')}</h2>
+           <h2>Welcome back, {userCredentials.fullname}</h2>
 
             
            {/* <Box sx={{pt:2, display: 'flex', justifyContent: 'space-between'}}>

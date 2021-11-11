@@ -195,12 +195,12 @@ const FormCompanyDetail : React.FC<any> = ({
             if(profile) {
                 setTimeout(() => {
                     setLoading(false)
-                    dispatch(changeStep(1))
                     localStorage.setItem('company_detail', JSON.stringify(dataOptions))
                 }, 2000);
             } else {
                 setTimeout(() => {
                     setLoading(false)
+                    dispatch(changeStep(1))
                     localStorage.setItem('company_detail', JSON.stringify(dataOptions))
                 }, 2000);
             }
@@ -227,11 +227,17 @@ const FormCompanyDetail : React.FC<any> = ({
             setSelectedDistrict(data.district)
             setSelectedSubDistrict(data.subdistrict)
             setSelectedCity(data.city)
-
-            console.log(data, 'local data')
         }
         if(local_data !== null) {
             checkLocalData()
+        }
+    }, []);
+
+    useEffect(() => {
+        const legalname = localStorage.getItem('legalname')
+        if(!legalname !== null) {
+            const data : any = legalname === null ? null : legalname
+            setValue('legalname', data)
         }
     }, []);
 

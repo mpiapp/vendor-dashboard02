@@ -14,11 +14,19 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../app/store';
-
+import HomeIcon from '@mui/icons-material/Home';
+import ReorderIcon from '@mui/icons-material/Reorder';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import ForumIcon from '@mui/icons-material/Forum';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
+import LocationCityIcon from '@mui/icons-material/LocationCity';
+import ChromeReaderModeIcon from '@mui/icons-material/ChromeReaderMode';
 
 const drawerWidth = 240;
 
@@ -63,7 +71,7 @@ const NavDashboard = (props: Props) => {
 
   const drawer = (
     <div>   
-      <Toolbar>
+      <Toolbar sx={{ backgroundColor: '#0091d6' }}>
         <div className="logo-mpi">
             <a href="/dashboard">
                 <img 
@@ -79,100 +87,92 @@ const NavDashboard = (props: Props) => {
             <NavLink exact to="/dashboard" activeClassName="active-link">
                 <ul>
                     <li className="navbar-list">
+                        <div className="icon"><HomeIcon/></div>
                         <span>Dashboard</span>
                     </li>
                 </ul>
             </NavLink>
-            <NavLink exact to="/dashboard/capabilities" activeClassName="active-link">
+            <Divider />
+            <NavLink exact to="/dashboard/orders" activeClassName="active-link">
                 <ul>
                     <li className="navbar-list">
-                        <span>Master Capabilities</span>
-                    </li>
-                </ul>
-            </NavLink>
-            
-            <NavLink exact to="/dashboard/features" activeClassName="active-link">
-                <ul>
-                    <li className="navbar-list">
-                        <span>Master Features</span>
-                    </li>
-                </ul>
-            </NavLink>
-            <NavLink exact to="/dashboard/modules" activeClassName="active-link">
-                <ul>
-                    <li className="navbar-list">
-                        <span>Master Modules</span>
-                    </li>
-                </ul>
-            </NavLink>
-            <NavLink exact to="/dashboard/roles" activeClassName="active-link">
-                <ul>
-                    <li className="navbar-list">
-                        <span>Master Roles</span>
-                    </li>
-                </ul>
-            </NavLink>
-            <NavLink exact to="/dashboard/status" activeClassName="active-link">
-                <ul>
-                    <li className="navbar-list">
-                        <span>Master Status</span>
-                    </li>
-                </ul>
-            </NavLink>
-            <NavLink exact to="/dashboard/status-config" activeClassName="active-link">
-                <ul>
-                    <li className="navbar-list">
-                        <span>Master Config Status</span>
-                    </li>
-                </ul>
-            </NavLink>
-            <NavLink exact to="/dashboard/payment-terms" activeClassName="active-link">
-                <ul>
-                    <li className="navbar-list">
-                        <span>Master Payment Terms</span>
-                    </li>
-                </ul>
-            </NavLink>
-            <NavLink exact to="/dashboard/legal-document" activeClassName="active-link">
-                <ul>
-                    <li className="navbar-list">
-                        <span>Master Legal DOC</span>
-                    </li>
-                </ul>
-            </NavLink>
-            <NavLink exact to="/dashboard/type-company" activeClassName="active-link">
-                <ul>
-                    <li className="navbar-list">
-                        <span>Master Type Company</span>
-                    </li>
-                </ul>
-            </NavLink>
-            <NavLink exact to="/dashboard/users-superadmin" activeClassName="active-link">
-                <ul>
-                    <li className="navbar-list">
-                        <span>Users Superadmin</span>
-                    </li>
-                </ul>
-            </NavLink>
-            <NavLink exact to="/dashboard/vendor-category" activeClassName="active-link">
-                <ul>
-                    <li className="navbar-list">
-                        <span>Vendor Category</span>
-                    </li>
-                </ul>
-            </NavLink>
-            <NavLink exact to="/dashboard/buyer-category" activeClassName="active-link">
-                <ul>
-                    <li className="navbar-list">
-                        <span>Buyer Category</span>
+                        <div className="icon"><ReorderIcon/></div>
+                        <span>Orders</span>
                     </li>
                 </ul>
             </NavLink>
             <Divider />
-            <NavLink exact to="/dashboard/setting" activeClassName="active-link">
+            <NavLink exact to="/dashboard/products" activeClassName="active-link">
                 <ul>
                     <li className="navbar-list">
-                        <span>Setting</span>
+                        <div className="icon"><ViewListIcon/></div>
+                        <span>Products</span>   
+                    </li>
+                </ul>
+            </NavLink>
+            <Divider />
+            <Divider />
+            <NavLink exact to="/dashboard/buyer-list" activeClassName="active-link">
+                <ul>
+                    <li className="navbar-list">
+                        <div className="icon"><ChromeReaderModeIcon/></div>
+                        <span>Buyer list</span>   
+                    </li>
+                </ul>
+            </NavLink>
+            <Divider />
+            <NavLink exact to="/dashboard/finance" activeClassName="active-link">
+                <ul>
+                    <li className="navbar-list">
+                        <div className="icon"><MonetizationOnIcon/></div>
+                        <span>Finance</span>   
+                    </li>
+                </ul>
+            </NavLink>
+            <Divider />
+            <Divider />
+            <NavLink exact to="/dashboard/message" activeClassName="active-link">
+                <ul>
+                    <li className="navbar-list">
+                        <div className="icon"><ForumIcon/></div>
+                        <span>Message</span>   
+                    </li>
+                </ul>
+            </NavLink>
+            <Divider />
+            <NavLink exact to="/dashboard/teams" activeClassName="active-link">
+                <ul>
+                    <li className="navbar-list">
+                        <div className="icon"><GroupAddIcon/></div>
+                        <span>Teams</span>
+                    </li>
+                </ul>
+            </NavLink>
+            <Divider />
+            <NavLink exact to="/dashboard/custom-role" activeClassName="active-link">
+                <ul>
+                    <li className="navbar-list">
+                        <div className="icon"><ReorderIcon/></div>
+                        <span>Custom Role</span>
+                    </li>
+                </ul>
+            </NavLink>
+            <Divider />
+            <NavLink exact to="/dashboard/profile" activeClassName="active-link">
+                <ul>
+                    <li className="navbar-list">
+                        <div className="icon"><LocationCityIcon/></div>
+                        <span>Profile Company</span>
+                    </li>
+                </ul>
+            </NavLink>
+            <Divider />
+            <Divider />
+            <NavLink exact to="/dashboard/account" activeClassName="active-link">
+                <ul>
+                    <li className="navbar-list">
+                        <div className="icon"><AccountBoxIcon/></div>
+                        <span>Account</span>
                     </li>
                 </ul>
             </NavLink>
@@ -193,8 +193,8 @@ const NavDashboard = (props: Props) => {
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
-                    backgroundColor: '#fff'
-                }}
+                    backgroundColor: '#0091d6'
+                }} 
             >
                 <Toolbar>
                     <IconButton
@@ -219,30 +219,24 @@ const NavDashboard = (props: Props) => {
                         </div>
                         {/* Dropdown Menu */}
                         <Popover
-                        data-testid="dropdown"
-                        id={id}
-                        open={open}
-                        anchorEl={anchorEl}
-                        onClose={handleClose}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        className="popper-style"
+                            data-testid="dropdown"
+                            id={id}
+                            open={open}
+                            anchorEl={anchorEl}
+                            onClose={handleClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            className="popper-style"
                         >
                         <Box>
                             <div style={{ width: 150 }}>
                             <List component="nav" aria-label="secondary mailbox folders">
-                                <ListItem button >
-                                    <ListItemText className="btn-navlist" primary="Profile" />
-                                </ListItem>
-                                <ListItem button >
-                                    <ListItemText className="btn-navlist" primary="Setting" />
-                                </ListItem>
                                 <ListItem 
                                     button 
                                     onClick={() => {

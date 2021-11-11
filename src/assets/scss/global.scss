@@ -21,10 +21,10 @@ a {
 .container-height {
     margin-top: 20px;
     padding-top: 40px;
-    min-height: 75vh;
+    min-height: 76vh;
     margin-bottom: 50px;
     h1 {
-        color: #1b4559;
+        color: #0091d6;
     }
 }
 
@@ -39,8 +39,8 @@ a {
 
 .error-p {
     color: #d43232;
-    padding-left: 15px;
-    padding-top: 4px;
+    padding-left: 5px;
+    padding-top: 0px;
     font-size: 13px;
 }
 
@@ -56,3 +56,22 @@ a {
     padding: 15px;
 }
 
+#select-style-cat {
+    z-index: 50 !important;
+}
+
+#select-style-type {
+    z-index: 40 !important;
+}
+
+#select-style-province {
+    z-index: 30 !important;
+}
+
+#select-style-city {
+    z-index: 20 !important;
+}
+
+#select-style-district {
+    z-index: 10 !important;
+}

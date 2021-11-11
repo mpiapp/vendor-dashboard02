@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import swal from 'sweetalert'
 import { userCredentials } from '../../../utilities/config'
+// import { useNavigate } from 'react-router-dom';
 import {
   DataUser,
   LoginState
 } from './loginTypes'
 import {loginAction} from './reducers/loginReducers'
 
+// const navigate = useNavigate()
 
 export const checkInitalLogin = (user : any) => {
   let login = false
@@ -46,7 +48,7 @@ export const loginSlice = createSlice({
         state.login = true;
         state.data = action.payload;
         swal("Succesfully Login", "Now redirecting to dashboard...", 'success')
-
+        // navigate('/dashboard', { replace: true });
       })
       .addCase(loginAction.rejected, (state, action : any) => {
         state.loading = false;

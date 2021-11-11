@@ -18,8 +18,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../../app/store';
-import { loginAction } from './reducers/loginReducers';
-import { UserFormSubmit } from './loginTypes'
+import { registerAction } from './reducers/registerReducers';
+import { UserFormSubmit } from './registerTypes'
 
 const validationSchema = yup
   .object({
@@ -28,20 +28,23 @@ const validationSchema = yup
       .email("Email is invalid"),
     password: yup.string()
       .required("Password is required")
-      .min(6, "Password must be at least 6 characters")
+      .min(6, "Password must be at least 6 characters"),
+    fullname: yup.string()
+      .required("Full Name is required"),
+    company_name: yup.string()
+      .required("Company Name is required")
   })
   .required();
 
 
-const Login = () => {
+const Register = () => {
   const dispatch = useDispatch()
-  const auth = useSelector((state : RootState) => state.login )
-
-  // console.log(auth, 'authh')
+  const register_store = useSelector((state : RootState) => state.register )
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors }
   } = useForm<UserFormSubmit>({
     mode: "onBlur",
@@ -49,23 +52,16 @@ const Login = () => {
   });
   
   const onSubmit = (data: UserFormSubmit): void => {
-    dispatch(loginAction(data))
+    dispatch(registerAction(data))
   }
 
 
   /* istanbul ignore next */
   useEffect(() => {
-    if(auth.login && auth.data?.first_time) {
-      setTimeout(() => {
-        window.location.href = '/register/step'
-      }, 1000);
-    } else if (auth.login && !auth.data?.first_time) {
-      setTimeout(() => {
-        window.location.href = '/dashboard'
-      }, 1000);
+    if(register_store.register) {
+        reset()
     }
-    // eslint-disable-next-line
-  }, [auth.login]);
+  }, [register_store.register, reset]);
 
   
   return (
@@ -86,12 +82,34 @@ const Login = () => {
               <ExitToAppIcon />
             </Avatar>
 
-            <Box color="primary">
-              <h1>Sign In for Vendor</h1>
-            </Box>
+            <div >
+              <h1>Register for Vendor</h1>
+            </div>
 
             <Box sx={{ mt: 1 }}>
             <form onSubmit={handleSubmit(onSubmit)}>
+              <TextField
+                error={!!errors.fullname}
+                helperText={errors.fullname && errors.fullname.message}
+                {...register('fullname', { required: true })}
+                margin="normal"
+                fullWidth
+                id="fullname"
+                label="Full Name"
+                name="fullname"
+                autoComplete="fullname"
+              />
+              <TextField
+                error={!!errors.company_name}
+                helperText={errors.company_name && errors.company_name.message}
+                {...register('company_name', { required: true })}
+                margin="normal"
+                fullWidth
+                id="company_name"
+                label="Legal Company Name"
+                name="company_name"
+                autoComplete="company_name"
+              />
               <TextField
                 error={!!errors.email}
                 helperText={errors.email && errors.email.message}
@@ -102,7 +120,6 @@ const Login = () => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                autoFocus
               />
               <TextField
                 error={!!errors.password}
@@ -123,23 +140,17 @@ const Login = () => {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
                 size="medium"
-                color="primary"
               >
-                Sign In 
+                Sign Up
                 
                 { /* istanbul ignore next */
-                  auth.loading && <CircularProgress  size={30} color="inherit" style={{marginLeft: 10}} /> }
+                  register_store.loading && <CircularProgress  size={30} color="inherit" style={{marginLeft: 10}} /> }
               </Button>
               <Grid container justifyContent="space-between">
                 <Grid item>
-                  {"Don't have account yet? "}
-                  <Link href="/register">
-                    Signup
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="/forgot-password">
-                    Forgot password?
+                  {"Already have an account? "}
+                  <Link href="/">
+                    Signin
                   </Link>
                 </Grid>
               </Grid>
@@ -153,4 +164,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Register;

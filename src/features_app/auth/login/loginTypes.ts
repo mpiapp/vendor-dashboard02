@@ -8,6 +8,7 @@ export interface DataUser {
     fullname : string;
     role: string;
     avatar : string;
+    first_time : boolean;
     auth_id : string;
     login : boolean;
   }

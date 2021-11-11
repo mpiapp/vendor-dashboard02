@@ -12,10 +12,10 @@ const Navbar = () => {
             elevation={0}
             sx={{ 
                 borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
-                backgroundColor: '#2f5be7'
+                backgroundColor: '#0091d6'
             }}
         >
-            <Toolbar sx={{ flexWrap: 'wrap' }}>
+            <Toolbar sx={{ flexWrap: 'wrap'}}>
             <div className="logo-mpi">
                 <a href="/">
                     <img 

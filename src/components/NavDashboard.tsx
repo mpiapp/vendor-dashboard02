@@ -70,17 +70,17 @@ const NavDashboard = (props: Props) => {
 
   const drawer = (
     <div>   
-      <Toolbar sx={{ backgroundColor: '#0091d6' }}>
-        <div className="logo-mpi">
-            <a href="/dashboard">
-                <img 
-                    alt="logo mpi dashboard" 
-                    src="https://www.wilsonfamilychiropracticcenter.net/wp-content/uploads/2018/12/placeholder-logo-2.png"
-                />
-            </a>
-        </div>
-      </Toolbar>
-      <Divider />
+        <Toolbar sx={{ backgroundColor: '#0091d6' }}>
+            <div className="logo-mpi">
+                <a href="/dashboard">
+                    <img 
+                        alt="logo mpi dashboard" 
+                        src="https://www.wilsonfamilychiropracticcenter.net/wp-content/uploads/2018/12/placeholder-logo-2.png"
+                    />
+                </a>
+            </div>
+        </Toolbar>
+        <Divider />
 
         <div className="sidebar-navbar">
             <NavLink exact to="/dashboard" activeClassName="active-link">

@@ -6,3 +6,14 @@ export interface IDataRowTeams {
     status: string,
     selector? : any
 }
+
+
+export interface UserSuperadminInput {
+    name: string;
+    password: string;
+    email: string;
+    role?: string,
+    flag? : string,
+    status?: string,
+    _id?: string;
+}

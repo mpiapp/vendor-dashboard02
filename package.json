@@ -5,7 +5,7 @@
   "dependencies": {
     "@auth0/auth0-react": "^1.8.0",
     "@auth0/auth0-spa-js": "^1.18.0",
-    "@bugsnag/js": "^7.13.2",
+    "@bugsnag/js": "^7.13.3",
     "@bugsnag/plugin-react": "^7.13.2",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",

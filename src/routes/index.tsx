@@ -6,6 +6,7 @@ import AccountPage from '../features_app/dashboard/account/AccountPage';
 import BuyerLists from '../features_app/dashboard/buyer_lists/BuyerLists';
 import ChatPage from '../features_app/dashboard/chat/ChatPage';
 import CustomRole from '../features_app/dashboard/custom_role/CustomRole';
+import DetailCustomRole from '../features_app/dashboard/custom_role/DetailCustomRole';
 import FinancePage from '../features_app/dashboard/finance/FinancePage';
 import HomeDashboard from '../features_app/dashboard/home/HomeDashboard';
 import OrdersPage from '../features_app/dashboard/orders/OrdersPage';
@@ -31,6 +32,7 @@ function AppRoute() {
           <DashboardLayout exact path="/dashboard/products" component={ProductsPage} />
           <DashboardLayout exact path="/dashboard/profile" component={ProfilePage} />
           <DashboardLayout exact path="/dashboard/custom-role" component={CustomRole} />
+          <DashboardLayout exact path="/dashboard/custom-role/:id" component={DetailCustomRole} />
           <DashboardLayout exact path="/dashboard/account" component={AccountPage} />
           <DashboardLayout exact path="/dashboard/finance" component={FinancePage} />
           <DashboardLayout exact path="/dashboard/message" component={ChatPage} />

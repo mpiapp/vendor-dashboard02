@@ -1,7 +1,6 @@
 /* istanbul ignore file */
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -27,6 +26,16 @@ import ForumIcon from '@mui/icons-material/Forum';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import ChromeReaderModeIcon from '@mui/icons-material/ChromeReaderMode';
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import NavigationIcon from '@mui/icons-material/Navigation';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 const drawerWidth = 240;
 
@@ -44,6 +53,15 @@ const NavDashboard = (props: Props) => {
         
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
+    };
+
+    const [openDialog, setOpenDialog] = React.useState(false);
+    const handleOpenDialog = () => {
+        setOpenDialog(true);
+      };
+    
+    const handleCloseDialog = () => {
+        setOpenDialog(false);
     };
 
     // dropdown menu 
@@ -177,6 +195,38 @@ const NavDashboard = (props: Props) => {
             </NavLink>
 
         </div>
+
+        <div className="floating-button">
+            <Box sx={{ '& > :not(style)': { m: 1 } }}>
+                <Fab variant="extended" onClick={() => handleOpenDialog()}>
+                    <NavigationIcon sx={{ mr: 1, color: '#0091d6' }} />
+                    Feedback
+                </Fab>
+            </Box>
+        </div>
+
+        <Dialog open={openDialog} onClose={handleCloseDialog}>
+            <DialogTitle>Feedback</DialogTitle>
+            <DialogContent>
+            <DialogContentText>
+                Give Feedback to us to make this platform much more better!
+            </DialogContentText>
+            <TextField
+                autoFocus
+                margin="normal"
+                id="name"
+                label="Enter your feedback"
+                multiline
+                rows={5}
+                fullWidth
+                variant="outlined"
+            />
+            </DialogContent>
+            <DialogActions>
+            <Button onClick={handleCloseDialog} color="error">Cancel</Button>
+            <Button onClick={handleCloseDialog} variant="contained">Submit</Button>
+            </DialogActions>
+        </Dialog>
 
     </div>
   );

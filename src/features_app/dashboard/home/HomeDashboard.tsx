@@ -4,13 +4,15 @@ import {userCredentials} from './../../../utilities/config'
 import CardStatistic from './components/CardStatistic'
 import NewestOrders from './components/NewestOrders'
 
+const username = userCredentials === null ? "" : userCredentials.fullname
+
 function HomeDashboard() {
     
     // console.log(userCredentials, 'userrr')
 
     return (
         <Box sx={{pl:3, pr:3, pt:2}}>
-           <h2>Welcome back, {userCredentials.fullname}</h2>
+           <h2>Welcome back, {username}</h2>
            <Box fontWeight="400">PT Manajemen Pemasaran Indonesia</Box>
 
             <Stack sx={{pt:3}} >

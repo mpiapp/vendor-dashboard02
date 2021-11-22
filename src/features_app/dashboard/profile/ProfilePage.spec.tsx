@@ -10,12 +10,14 @@ const render = (component : any)  => renderRTL (
   </Provider>
 )
 
-describe("render element profile home page", () => {
-    it('should render all element in profile home page', () => {
-        render(<ProfilePage />)
-    
-        // render main component
-        expect(screen.getByText(/profile/i)).toBeInTheDocument();
+describe("render element profile page", () => {
+    it('should render title element in profile page', () => {
 
-    })
+        render(<ProfilePage/>)
+        // render main component
+        expect(screen.getByText(/Profile Company/i)).toBeInTheDocument();
+
+        
+
+    })  
 })

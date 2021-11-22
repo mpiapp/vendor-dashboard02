@@ -15,7 +15,7 @@ describe("render element dashboard home page", () => {
         render(<OrdersPage />)
     
         // render main component
-        expect(screen.getByText(/orders/i)).toBeInTheDocument();
+        expect(screen.getByText(/Orders page is cooming soon/)).toBeInTheDocument();
 
     })
 })

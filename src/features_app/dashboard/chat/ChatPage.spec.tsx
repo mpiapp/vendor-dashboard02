@@ -15,7 +15,7 @@ describe("render element chat page", () => {
         render(<ChatPage />)
     
         // render main component
-        expect(screen.getByText(/chat/i)).toBeInTheDocument();
+        expect(screen.getByText(/Chat page is cooming soon/)).toBeInTheDocument();
 
     })
 })

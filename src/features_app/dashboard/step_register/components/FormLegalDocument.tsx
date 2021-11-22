@@ -97,7 +97,7 @@ const FormLegalDocument : React.FC<any> = ({
            <div className="section-form-company-detail">
                 <Box pl={2}>
                     {legalDocState?.map((val : any, i :any) => (
-                        <Box>
+                        <Box key={i}>
                             <Grid container >
                                 <Grid item xl={3} lg={4} xs={12}>
                                     <Box pt={2}><h4>{val.title}</h4></Box>

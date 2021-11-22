@@ -15,7 +15,7 @@ describe("render element BuyerLists page", () => {
         render(<BuyerLists />)
     
         // render main component
-        expect(screen.getByText(/buyer lists/i)).toBeInTheDocument();
+        expect(screen.getByText(/Prefered Buyer Lists is coming soon/)).toBeInTheDocument();
 
     })
 })

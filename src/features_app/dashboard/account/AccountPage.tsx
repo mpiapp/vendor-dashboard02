@@ -3,6 +3,9 @@ import { Box } from '@mui/system'
 import BreadCrumbs from '../../../components/BreadCrumbs'
 import {userCredentials} from './../../../utilities/config'
 
+const username = userCredentials === null ? "" : userCredentials.fullname
+const email = userCredentials === null ? "" : userCredentials.email
+
 function AccountPage() {
 
     // console.log(userCredentials, 'userrr')
@@ -25,7 +28,7 @@ function AccountPage() {
                             // error={!!errors.fullname}
                             // helperText={errors.fullname && errors.fullname.message}
                             // {...register('fullname', { required: true })}
-                            defaultValue={userCredentials.fullname}
+                            defaultValue={username}
                             margin="normal"
                             fullWidth
                             id="fullname"
@@ -43,7 +46,7 @@ function AccountPage() {
                             label="Email Address"
                             name="email"
                             autoComplete="email"
-                            defaultValue={userCredentials.email}
+                            defaultValue={email}
                             disabled
                         />
                         <TextField

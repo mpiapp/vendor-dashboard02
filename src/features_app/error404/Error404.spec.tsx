@@ -15,7 +15,7 @@ describe("render element error page", () => {
         render(<Error404 />)
     
         // render main component
-        expect(screen.getByText(/account/i)).toBeInTheDocument();
+        expect(screen.getByText(/page not found/i)).toBeInTheDocument();
 
     })
 })

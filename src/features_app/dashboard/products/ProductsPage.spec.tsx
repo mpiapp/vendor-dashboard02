@@ -10,12 +10,12 @@ const render = (component : any)  => renderRTL (
   </Provider>
 )
 
-describe("render element dashboard home page", () => {
-    it('should render all element in dashboard home page', () => {
+describe("render element product page", () => {
+    it('should render all element in product page', () => {
         render(<ProductsPage />)
     
         // render main component
-        expect(screen.getByText(/products/i)).toBeInTheDocument();
+        expect(screen.getByText(/Products page is cooming soon/)).toBeInTheDocument();
 
     })
 })

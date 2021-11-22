@@ -15,7 +15,7 @@ describe("render element finance page", () => {
         render(<FinancePage />)
     
         // render main component
-        expect(screen.getByText(/setting/i)).toBeInTheDocument();
+        expect(screen.getByText(/Finance page is cooming soon/)).toBeInTheDocument();
 
     })
 })

@@ -15,7 +15,7 @@ describe("render element dashboard customrole page", () => {
         render(<CustomRole />)
     
         // render main component
-        expect(screen.getByText(/custom role/i)).toBeInTheDocument();
+        expect(screen.getByText(/custom roles/i)).toBeInTheDocument();
 
     })
 })

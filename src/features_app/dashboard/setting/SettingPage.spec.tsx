@@ -10,12 +10,12 @@ const render = (component : any)  => renderRTL (
   </Provider>
 )
 
-describe("render element teams setting page", () => {
-    it('should render all element in teams setting page', () => {
+describe("render element setting page", () => {
+    it('should render all element in setting page', () => {
         render(<SettingPage />)
     
         // render main component
-        expect(screen.getByText(/setting/i)).toBeInTheDocument();
+        expect(screen.getByText(/Setting page is cooming soon/)).toBeInTheDocument();
 
     })
 })

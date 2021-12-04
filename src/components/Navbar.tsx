@@ -2,6 +2,7 @@ import {
     AppBar,
     Toolbar,
 } from '@mui/material';
+import logo from '../assets/img/logo.png'
 
 const Navbar = () => {
     return (
@@ -16,11 +17,11 @@ const Navbar = () => {
             }}
         >
             <Toolbar sx={{ flexWrap: 'wrap'}}>
-            <div className="logo-mpi">
+            <div className="logo-mpi-main">
                 <a href="/">
                     <img 
                         alt="logo mpi" 
-                        src="https://www.wilsonfamilychiropracticcenter.net/wp-content/uploads/2018/12/placeholder-logo-2.png"
+                        src={logo}
                     />
                 </a>
             </div>

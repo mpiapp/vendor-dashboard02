@@ -35,7 +35,7 @@ export const loginAction = createAsyncThunk(
                             role : profil.data.role, 
                             avatar : profil.data.avatar,
                             auth_id : profil.data.auth_id,
-                            first_time : true,
+                            first_time : false,
                             login: true
                         }
                         const saveToLocalStorage = crypto.AES.encrypt(JSON.stringify(data), `${process.env.REACT_APP_CRYPTO_SECRET}`).toString();

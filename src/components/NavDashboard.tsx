@@ -36,6 +36,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import logo from '../assets/img/logo.png'
 
 const drawerWidth = 240;
 
@@ -93,7 +94,7 @@ const NavDashboard = (props: Props) => {
                 <a href="/dashboard">
                     <img 
                         alt="logo mpi dashboard" 
-                        src="https://www.wilsonfamilychiropracticcenter.net/wp-content/uploads/2018/12/placeholder-logo-2.png"
+                        src={logo}
                     />
                 </a>
             </div>

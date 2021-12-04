@@ -32,6 +32,8 @@ const CardOrderDP : React.FC<any> = ({
     const [dataFile, setDataFile] = useState<any>([]);
     const [dataID, setDataID] = useState<any>("");
 
+    console.log(dataFile, 'data filee')
+
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -39,6 +41,7 @@ const CardOrderDP : React.FC<any> = ({
     const handleClose = () => {
         setOpen(false);
         setNominalDP("")
+        setDataFile([])
     };
 
     useEffect(() => {
@@ -65,8 +68,8 @@ const CardOrderDP : React.FC<any> = ({
     <Stack>
         <div>
             { data?.map((val : any, i : any) => (
-            <Box mb={2} mt={2}>
-                <Paper elevation={2} sx={{mt:2}} key={i}>
+            <Box mb={2} mt={2} key={i}>
+                <Paper elevation={2} sx={{mt:2}}>
                 <Paper>
                     <Grid container spacing={2} justifyContent="space-between">
                         <Grid item>
@@ -80,7 +83,7 @@ const CardOrderDP : React.FC<any> = ({
                                 onClick={() => {
                                     handleClickOpen()
                                     setNominalDP(val.down_payment)
-                                    setDataFile(val.proof_of_advance_payment)
+                                    setDataFile([val.proof_of_advance_payment])
                                     setDataID(val._id)
                                 }}
                             >
@@ -133,13 +136,15 @@ const CardOrderDP : React.FC<any> = ({
                 {"Confirmation Down Payment"}
             </DialogTitle>
             <DialogContent>
-                { dataFile.length === 0 ? 
+            { dataFile.length === 0 ? 
                 <Box pt={1}>Buyer not yet paid down payment</Box>
                 :
                 <Stack sx={{ pt:1 }} flexDirection="column" alignContent="center">
                     <Box pb={1}>
                         <Box pb={1}>Proof of payment </Box>
-                        <img src={dataFile.file.url} alt="file" width="200px" />
+                        { dataFile.length === 0  ? null :
+                            <img src={dataFile[0].file.url} alt="file" width="200px" />
+                        }
                     </Box>
                     <TextField
                         label="Nominal Down Payment"

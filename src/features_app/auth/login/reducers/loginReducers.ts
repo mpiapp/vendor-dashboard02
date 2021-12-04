@@ -25,7 +25,6 @@ export const loginAction = createAsyncThunk(
                         headers: headers
                     })
                     if(profil) {
-                        console.log(profil, 'profile')
                         let data = {
                             access_token : response.data.access_token,
                             id_token : response.data.id_token, 

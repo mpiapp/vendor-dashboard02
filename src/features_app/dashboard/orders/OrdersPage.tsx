@@ -63,7 +63,7 @@ const OrdersPage = () => {
     const [dataReadyToProcess, setdataReadyToProcess] = useState<any>([]);
     const [dataWaitingDownPayment, setdataWaitingDownPayment] = useState<any>([]);
 
-    console.log(dataWaitingDownPayment, 'dataWaitingDownPayment')
+    // console.log(dataWaitingDownPayment, 'dataWaitingDownPayment')
 
 
     const functionChangeUpdate = (id_package : string, update : string, items : any) => {

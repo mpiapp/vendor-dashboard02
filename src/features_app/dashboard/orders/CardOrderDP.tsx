@@ -83,7 +83,9 @@ const CardOrderDP : React.FC<any> = ({
                                 onClick={() => {
                                     handleClickOpen()
                                     setNominalDP(val.down_payment)
-                                    setDataFile([val.proof_of_advance_payment])
+                                    if(val.proof_of_advance_payment) {
+                                        setDataFile([val.proof_of_advance_payment])
+                                    }
                                     setDataID(val._id)
                                 }}
                             >
@@ -162,6 +164,7 @@ const CardOrderDP : React.FC<any> = ({
                 <Button 
                     onClick={() => onClickSubmit()} 
                     variant="contained" color="primary"
+                    disabled={dataFile.length === 0 ? true : false}
                 >
                     { store_purchaseorders.loading_confirm ? 
                         <div>Loading.. <CircularProgress size={20} color="inherit"/> </div> :
